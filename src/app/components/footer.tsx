@@ -12,7 +12,7 @@ const Footer = () => {
               TPQ Al-Hikmah
             </h3>
             <p className="mb-4">
-              Membentuk generasi Qur'ani yang cerdas dan berakhlak mulia sejak
+              Membentuk generasi Qur&apos;ani yang cerdas dan berakhlak mulia sejak
               dini.
             </p>
             {/* Social Media Icons */}

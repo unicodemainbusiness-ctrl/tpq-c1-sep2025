@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from 'next/link';
-import Image from 'next/image';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
@@ -29,7 +29,7 @@ const programData = [
 ];
 
 // Komponen untuk kartu program
-const ProgramCard = ({ nama, target, deskripsi, fokus, jadwal }) => (
+const ProgramCard = ({ nama, target, deskripsi, fokus, jadwal }: any) => (
   <div className="bg-white border border-green-200 rounded-lg shadow-lg p-8 h-full flex flex-col">
     <h3 className="text-2xl font-bold text-green-800 mb-2">{nama}</h3>
     <p className="font-semibold text-green-600 mb-4">{target}</p>
@@ -37,7 +37,7 @@ const ProgramCard = ({ nama, target, deskripsi, fokus, jadwal }) => (
     <div className="mb-6">
       <h4 className="font-bold text-gray-700 mb-2">Fokus Pembelajaran:</h4>
       <ul className="space-y-2">
-        {fokus.map((item, index) => (
+        {fokus.map((item: any, index: any) => (
           <li key={index} className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
             <span className="text-gray-600">{item}</span>
@@ -65,7 +65,7 @@ export default function ProgramPage() {
         <section className="bg-white pt-12 pb-8 h-[90vh] flex justify-center items-center">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-green-800">Program Pembelajaran</h1>
-            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Kurikulum kami dirancang secara bertahap untuk membangun pondasi cinta Al-Qur'an yang kuat pada diri setiap santri.</p>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Kurikulum kami dirancang secara bertahap untuk membangun pondasi cinta Al-Qur&apos;an yang kuat pada diri setiap santri.</p>
           </div>
         </section>
 
@@ -84,7 +84,7 @@ export default function ProgramPage() {
         <section className="bg-white py-20 h-[60vh]">
             <div className="container mx-auto px-6 text-center">
                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Siap Menjadi Bagian dari Keluarga Besar TPQ Al-Hikmah?</h2>
-                 <p className="text-gray-600 max-w-2xl mx-auto mb-8">Daftarkan putra-putri Anda sekarang dan berikan mereka hadiah terbaik berupa pendidikan Al-Qur'an yang berkualitas.</p>
+                 <p className="text-gray-600 max-w-2xl mx-auto mb-8">Daftarkan putra-putri Anda sekarang dan berikan mereka hadiah terbaik berupa pendidikan Al-Qur&apos;an yang berkualitas.</p>
                  <Link href="/pendaftaran" className="bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-green-700 transition duration-300">
                     Daftar di Sini
                 </Link>

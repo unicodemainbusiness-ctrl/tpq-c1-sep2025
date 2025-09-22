@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -13,7 +14,7 @@ const pengajarData = [
 ];
 
 // Custom Hook untuk animasi scroll
-const useInView = (options) => {
+const useInView = (options: any) => {
     const ref = useRef(null);
     const [isInView, setIsInView] = useState(false);
     useEffect(() => {
@@ -33,7 +34,7 @@ const useInView = (options) => {
 
 
 // Komponen untuk kartu pengajar
-const PengajarCard = ({ nama, jabatan, foto }) => (
+const PengajarCard = ({ nama, jabatan, foto }: any) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden text-center transform hover:-translate-y-2 transition-transform duration-300">
         <div className="relative h-60 w-full">
             <Image src={foto} alt={`Foto ${nama}`} layout="fill" objectFit="cover" />
@@ -58,23 +59,23 @@ export default function TentangKamiPage() {
                 <section className="bg-green-50 py-12 h-[90vh] flex justify-center items-center">
                     <div className="container mx-auto px-6 text-center animate-fade-in-down">
                         <h1 className="text-4xl md:text-5xl font-extrabold text-green-800">Tentang TPQ Al-Hikmah</h1>
-                        <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Mengenal lebih dekat lembaga pendidikan Al-Qur'an yang berdedikasi untuk mencetak generasi Rabbani.</p>
+                        <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Mengenal lebih dekat lembaga pendidikan Al-Qur&aposan yang berdedikasi untuk mencetak generasi Rabbani.</p>
                     </div>
                 </section>
 
                 {/* Visi & Misi */}
-                <section ref={visiMisiRef} className="py-20 overflow-hidden">
+                <section ref={visiMisiRef as any} className="py-20 overflow-hidden">
                     <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                         <div className={`transition-all duration-1000 ${visiMisiInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                             <h2 className="text-3xl font-bold text-gray-800 mb-4">Visi Kami</h2>
                             <p className="text-gray-600 mb-6 text-lg italic">
-                                "Menjadi lembaga pendidikan Al-Qur'an terdepan yang melahirkan generasi cinta Al-Qur'an, cerdas, dan berakhlak mulia."
+                                &lsquo; Menjadi lembaga pendidikan Al-Qur&apos;an terdepan yang melahirkan generasi cinta Al-Qur&apos;an, cerdas, dan berakhlak mulia. &lsquo;
                             </p>
                         </div>
                         <div className={`transition-all duration-1000 delay-200 ${visiMisiInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
                             <h2 className="text-3xl font-bold text-gray-800 mb-4">Misi Kami</h2>
                             <ul className="space-y-3 text-gray-600">
-                                <li className="flex items-start"><span className="text-green-600 font-bold mr-3 mt-1">✓</span><span>Menyelenggarakan pembelajaran Al-Qur'an yang efektif dan menyenangkan.</span></li>
+                                <li className="flex items-start"><span className="text-green-600 font-bold mr-3 mt-1">✓</span><span>Menyelenggarakan pembelajaran Al-Qur&apos;an yang efektif dan menyenangkan.</span></li>
                                 <li className="flex items-start"><span className="text-green-600 font-bold mr-3 mt-1">✓</span><span>Menanamkan nilai-nilai akhlakul karimah dalam setiap kegiatan.</span></li>
                                 <li className="flex items-start"><span className="text-green-600 font-bold mr-3 mt-1">✓</span><span>Membina santri untuk memiliki hafalan doa harian dan surat-surat pendek.</span></li>
                             </ul>
@@ -83,21 +84,21 @@ export default function TentangKamiPage() {
                 </section>
 
                 {/* Sejarah Singkat */}
-                <section ref={sejarahRef} className="bg-gray-50 py-20 overflow-hidden h-[90vh]">
+                <section ref={sejarahRef as any} className="bg-gray-50 py-20 overflow-hidden h-[90vh]">
                     <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                         <div className={`md:w-1/2 transition-all duration-1000 ${sejarahInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                             <Image src="https://placehold.co/600x400/e8f5e9/333333?text=TPQ+Al-Hikmah" alt="Gedung TPQ Al-Hikmah" width={600} height={400} className="rounded-lg shadow-xl" />
                         </div>
                         <div className={`md:w-1/2 transition-all duration-1000 delay-200 ${sejarahInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
                             <h2 className="text-3xl font-bold text-gray-800 mb-4">Sejarah Singkat</h2>
-                            <p className="text-gray-600 mb-4">TPQ Al-Hikmah didirikan pada tahun 2010 atas keprihatinan tokoh masyarakat akan pentingnya pendidikan Al-Qur'an sejak dini. Berawal dari sebuah ruang kecil, kami berkomitmen untuk memberikan akses belajar mengaji yang berkualitas.</p>
+                            <p className="text-gray-600 mb-4">TPQ Al-Hikmah didirikan pada tahun 2010 atas keprihatinan tokoh masyarakat akan pentingnya pendidikan Al-Qur&apos;an sejak dini. Berawal dari sebuah ruang kecil, kami berkomitmen untuk memberikan akses belajar mengaji yang berkualitas.</p>
                             <p className="text-gray-600">Alhamdulillah, berkat dukungan para orang tua, TPQ Al-Hikmah terus berkembang dan kini memiliki fasilitas yang lebih memadai untuk mendukung proses belajar yang lebih optimal.</p>
                         </div>
                     </div>
                 </section>
 
                 {/* Tim Pengajar */}
-                <section ref={pengajarRef} className="py-20 overflow-hidden h-[90vh]">
+                <section ref={pengajarRef as any} className="py-20 overflow-hidden h-[90vh]">
                     <div className="container mx-auto px-6">
                         <div className={`text-center mb-12 transition-opacity duration-1000 ${pengajarInView ? 'opacity-100' : 'opacity-0'}`}>
                             <h2 className="text-3xl md:text-4xl font-bold">Kenali Tim Pengajar Kami</h2>
