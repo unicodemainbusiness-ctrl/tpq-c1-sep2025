@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Definisi Keyframe untuk Animasi
+  Ini adalah "resep" dari animasi yang akan kita gunakan.
+*/
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kelas Utilitas Animasi
+  Kita membuat kelas ini agar mudah diterapkan pada elemen HTML/JSX.
+*/
+
+.animate-fade-in-up {
+  /* Menerapkan animasi fadeInUp selama 0.8 detik */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  /* Menerapkan animasi fadeInDown selama 0.8 detik */
+  animation: fadeInDown 0.8s ease-out forwards;
+}

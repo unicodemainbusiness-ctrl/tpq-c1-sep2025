@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 // Data dummy untuk tim pengajar. Anda bisa menggantinya dengan data asli.
 const pengajarData = [
@@ -125,11 +126,7 @@ export default function TentangKamiPage() {
       </main>
 
       {/* Footer (Sama seperti Homepage) */}
-      <footer className="bg-gray-800 text-white">
-        <div className="container mx-auto px-6 py-6 text-center">
-          <p>&copy; {new Date().getFullYear()} TPQ Al-Hikmah. Semua Hak Cipta Dilindungi.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
