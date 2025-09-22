@@ -62,7 +62,7 @@ export default function ProgramPage() {
 
       <main>
         {/* Judul Halaman */}
-        <section className="bg-white pt-12 pb-8">
+        <section className="bg-white pt-12 pb-8 h-[90vh] flex justify-center items-center">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-green-800">Program Pembelajaran</h1>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Kurikulum kami dirancang secara bertahap untuk membangun pondasi cinta Al-Qur'an yang kuat pada diri setiap santri.</p>
@@ -71,7 +71,7 @@ export default function ProgramPage() {
 
         {/* Daftar Program */}
         <section className="py-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 h-[90vh]">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {programData.map((program, index) => (
                 <ProgramCard key={index} {...program} />
@@ -81,7 +81,7 @@ export default function ProgramPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="bg-white py-20">
+        <section className="bg-white py-20 h-[60vh]">
             <div className="container mx-auto px-6 text-center">
                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Siap Menjadi Bagian dari Keluarga Besar TPQ Al-Hikmah?</h2>
                  <p className="text-gray-600 max-w-2xl mx-auto mb-8">Daftarkan putra-putri Anda sekarang dan berikan mereka hadiah terbaik berupa pendidikan Al-Qur'an yang berkualitas.</p>

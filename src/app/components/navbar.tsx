@@ -13,6 +13,7 @@ const Navbar = () => {
             <Link href="/about" className="text-gray-600 hover:text-green-700 font-semibold">Tentang Kami</Link>
             <Link href="/program" className="text-gray-600 hover:text-green-700 font-semibold">Program</Link>
             <Link href="/gallery" className="text-gray-600 hover:text-green-700 font-semibold">Galeri</Link>
+            <Link href="/contact" className="text-gray-600 hover:text-green-700 font-semibold">Kontak</Link>
           </div>
           <Link href="/pendaftaran" className="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
             Daftar Sekarang
