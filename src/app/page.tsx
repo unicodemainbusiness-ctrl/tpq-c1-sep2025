@@ -74,6 +74,28 @@ const ChevronLeft = () => (
     <path d="m15 18-6-6 6-6" />
   </svg>
 );
+const fasilitasData = [
+  {
+    nama: "Ruang Kelas Nyaman",
+    deskripsi: "Dilengkapi AC dan papan tulis interaktif.",
+    gambar: "/assets/image/hero.png",
+  },
+  {
+    nama: "Perpustakaan Mini",
+    deskripsi: "Koleksi buku cerita islami dan Iqro'.",
+    gambar: "/assets/image/hero.png",
+  },
+  {
+    nama: "Area Bermain Edukatif",
+    deskripsi: "Tempat santri bersosialisasi dan bermain.",
+    gambar: "/assets/image/hero.png",
+  },
+  {
+    nama: "Musholla Bersih",
+    deskripsi: "Untuk praktik sholat berjamaah.",
+    gambar: "/assets/image/hero.png",
+  },
+];
 const ChevronRight = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +140,16 @@ const useInView = (options: any) => {
   return [ref, isInView];
 };
 
+const jadwalData = [
+  { hari: 'Senin', waktu: '16:00 - 17:30', kegiatan: "Kelas Iqro' (Kelompok A & B)" },
+  { hari: 'Selasa', waktu: '16:00 - 17:30', kegiatan: "Kelas Tahsin (Kelompok A)" },
+  { hari: 'Rabu', waktu: '16:00 - 17:30', kegiatan: "Kelas Iqro' (Kelompok C & D)" },
+  { hari: 'Kamis', waktu: '16:00 - 17:30', kegiatan: "Kelas Tahsin (Kelompok B)" },
+  { hari: 'Jumat', waktu: '16:00 - 17:30', kegiatan: 'Kelas Gabungan (Akhlak & Kisah Nabi)' },
+  { hari: 'Sabtu', waktu: '09:00 - 10:30', kegiatan: 'Kelas Tahfidz' },
+  { hari: 'Ahad', waktu: '09:00 - 10:30', kegiatan: 'Kelas Tahfidz & Ekstrakurikuler Islami' },
+];
+
 const galeriData = [
   { src: "/assets/image/hero.png", alt: "Suasana belajar mengaji di kelas" },
   { src: "/assets/image/hero.png", alt: "Prosesi wisuda santri" },
@@ -133,6 +165,9 @@ export default function HomePage() {
   const [featuresRef, featuresInView] = useInView({ threshold: 0.2 });
   const [visiMisiRef, visiMisiInView] = useInView({ threshold: 0.3 });
   const [testimonialRef, testimonialInView] = useInView({ threshold: 0.2 });
+  const [jadwalRef, jadwalInView] = useInView({ threshold: 0.2 });
+
+  const [fasilitasRef, fasilitasInView] = useInView({ threshold: 0.2 });
   const [ctaRef, ctaInView] = useInView({ threshold: 0.5 });
 
   const scrollCarousel = (direction: "left" | "right") => {
@@ -190,8 +225,8 @@ export default function HomePage() {
                   <Image
                     src="/assets/image/hero.png"
                     alt="Santri TPQ Al-Hikmah"
-                    layout="fill"
-                    objectFit="contain"
+                    width={500}
+                    height={500}
                     className="relative z-10"
                     priority
                   />
@@ -242,7 +277,7 @@ export default function HomePage() {
                 className={`flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 transition-all duration-1000 ${
                   galleryInView ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ scrollbarWidth: "none", "msOverflowStyle": "none" }}
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               >
                 {galeriData.map((item, index) => (
                   <div
@@ -529,6 +564,118 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Fasilitas Penunjang */}
+        <section ref={fasilitasRef as any} className="py-24 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2
+                className={`text-3xl md:text-4xl font-bold transition-all duration-700 ${
+                  fasilitasInView ? "animate-fade-in-up" : "opacity-0"
+                }`}
+              >
+                Fasilitas Penunjang Belajar
+              </h2>
+              <p
+                className={`text-gray-600 max-w-2xl mx-auto mt-4 transition-all duration-700 delay-200 ${
+                  fasilitasInView ? "animate-fade-in-up" : "opacity-0"
+                }`}
+              >
+                Kami menyediakan lingkungan belajar yang aman, nyaman, dan
+                mendukung perkembangan santri.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {fasilitasData.map((fasilitas, index) => (
+                <div
+                  key={index}
+                  className={`bg-gray-50 rounded-lg overflow-hidden shadow-lg transition-all duration-700 delay-${
+                    index * 100
+                  } ${
+                    fasilitasInView
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
+                  }`}
+                >
+                  <Image
+                    src={fasilitas.gambar}
+                    alt={fasilitas.nama}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="font-bold text-lg">{fasilitas.nama}</h3>
+                    <p className="text-gray-600 text-sm mt-1">
+                      {fasilitas.deskripsi}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Jadwal Kegiatan */}
+        <section ref={jadwalRef as any} className="py-24 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2
+                className={`text-3xl md:text-4xl font-bold transition-all duration-700 ${
+                  jadwalInView ? "animate-fade-in-up" : "opacity-0"
+                }`}
+              >
+                Jadwal Kegiatan Mingguan
+              </h2>
+              <p
+                className={`text-gray-600 max-w-2xl mx-auto mt-4 transition-all duration-700 delay-200 ${
+                  jadwalInView ? "animate-fade-in-up" : "opacity-0"
+                }`}
+              >
+                Struktur waktu belajar yang teratur untuk memaksimalkan
+                penyerapan ilmu.
+              </p>
+            </div>
+            <div
+              className={`bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-1000 ${
+                jadwalInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
+              }`}
+            >
+              <div className="divide-y divide-gray-200">
+                {/* Header Tabel */}
+                <div className="hidden md:grid grid-cols-3 gap-4 bg-green-600 text-white font-bold p-4">
+                  <div>Hari</div>
+                  <div>Waktu</div>
+                  <div>Kegiatan</div>
+                </div>
+                {/* Isi Tabel */}
+                {jadwalData.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`grid grid-cols-1 md:grid-cols-3 gap-4 p-4 items-center transition-all duration-500 delay-${
+                      index * 100
+                    } ${jadwalInView ? "opacity-100" : "opacity-0"}`}
+                  >
+                    <div className="font-bold text-green-700 md:text-gray-800">
+                      <span className="md:hidden">Hari: </span>
+                      {item.hari}
+                    </div>
+                    <div className="text-gray-600">
+                      <span className="md:hidden font-semibold">Waktu: </span>
+                      {item.waktu}
+                    </div>
+                    <div className="text-gray-600">
+                      <span className="md:hidden font-semibold">
+                        Kegiatan:{" "}
+                      </span>
+                      {item.kegiatan}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* --- Section Baru: Testimoni --- */}
         <section ref={testimonialRef as any} className="py-24 bg-gray-50">
           <div className="container mx-auto px-6">
@@ -595,8 +742,8 @@ export default function HomePage() {
               wujudkan generasi penerus yang cinta Al-Qur&apos;an.
             </p>
             <Link
-            href={"/"}
-            className="bg-white text-green-700 font-bold py-4 px-6 rounded-lg"
+              href={"/"}
+              className="bg-white text-green-700 font-bold py-4 px-6 rounded-lg"
             >
               Daftar Sekarang
             </Link>
